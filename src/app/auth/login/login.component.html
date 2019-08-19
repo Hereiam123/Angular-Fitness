@@ -3,40 +3,34 @@
     fxLayout="column"
     fxLayoutAlign="center center"
     fxLayoutGap="10px"
-    #f="ngForm"
-    (ngSubmit)="onSubmit(f)"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
   >
     <mat-form-field>
       <input
         type="email"
         matInput
         placeholder="Enter your email"
-        ngModel
-        name="email"
-        email
-        required
-        #emailInput="ngModel"
+        formControlName="email"
       />
+      <mat-hint>Please enter Email</mat-hint>
       <mat-error>Email is Invalid</mat-error>
     </mat-form-field>
-    <mat-form-field hintLabel="Should be at least 6 characters long">
+    <mat-form-field>
       <input
         type="password"
         matInput
         placeholder="Your Password"
-        ngModel
-        name="password"
-        minlength="6"
-        required
-        #pwInput="ngModel"
+        formControlName="password"
       />
+      <mat-hint>Please enter Password</mat-hint>
       <mat-error>Password must be valid</mat-error>
     </mat-form-field>
     <button
       mat-raised-button
       color="primary"
       type="submit"
-      [disabled]="f.invalid"
+      [disabled]="loginForm.invalid"
     >
       Submit
     </button>
