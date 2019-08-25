@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   openSideNav = false;
-  title = 'angularMaterial';
+
+  onToggle(): void {}
 }
