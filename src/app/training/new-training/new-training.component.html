@@ -1,5 +1,23 @@
-<mat-card fxLayout="column">
-  <mat-card-title>
-    New Training Item
-  </mat-card-title>
-</mat-card>
+<section class="new-training" fxLayout fxLayoutAlign="center">
+  <mat-card fxFlex="400px">
+    <mat-card-title>
+      New Training Item
+    </mat-card-title>
+    <mat-card-content>
+      Select type of training
+    </mat-card-content>
+    <mat-form-field>
+      <mat-select placeholder="Excercises" [(ngModel)]="selectedValue" name="item">
+        <mat-option value="crunches">
+          Crunches
+        </mat-option>
+        <mat-option value="touch-toes">
+          Touch Toes
+        </mat-option>
+        <mat-option value="side-lunges">
+          Side Lunges
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+</section>
