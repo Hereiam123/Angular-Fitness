@@ -4,7 +4,8 @@ import {
   MatSidenavModule,
   MatToolbarModule,
   MatListModule,
-  MatTabsModule
+  MatTabsModule,
+  MatCardModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
@@ -24,7 +25,8 @@ import { MatCheckboxModule } from '@angular/material';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
@@ -37,7 +39,8 @@ import { MatCheckboxModule } from '@angular/material';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ]
 })
 export class MaterialModule { }
