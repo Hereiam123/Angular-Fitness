@@ -13,6 +13,8 @@ export class CurrentTrainingComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
+    //Why can I do this?
+    //The interval returns an ID, I believe
     this.timer = setInterval(() => {
       this.progress = this.progress + 5;
       if (this.progress >= 100) {
@@ -23,6 +25,17 @@ export class CurrentTrainingComponent implements OnInit {
 
   onStop(): void {
     clearInterval(this.timer);
-    this.dialog.open(StopTrainingComponent);
+    const dialogRef = this.dialog.open(StopTrainingComponent, {
+      data: {
+        progress: this.progress
+      }
+    });
+
+    //Action values returned from dialog after closed
+    //Should contain the button value clicked
+    //within the dialog
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 }
