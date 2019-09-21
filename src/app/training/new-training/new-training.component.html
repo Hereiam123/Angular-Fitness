@@ -1,12 +1,9 @@
 <section class="new-training" fxLayout fxLayoutAlign="center">
   <mat-card fxFlex="400px">
-    <mat-card-title fxLayoutAlign="center center">
+    <mat-card-title fxLayoutAlign="center">
       New Training Item
     </mat-card-title>
-    <mat-card-content fxLayoutAlign="center center">
-      Select type of training
-    </mat-card-content>
-    <mat-form-field>
+    <mat-form-field fxLayoutAlign="center">
       <mat-select placeholder="Excercises" [(ngModel)]="selectedValue" name="item">
         <mat-option value="crunches">
           Crunches
@@ -19,7 +16,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-card-actions>
+    <mat-card-actions fxLayoutAlign="center">
       <button type="submit" mat-button>Submit</button>
     </mat-card-actions>
   </mat-card>
