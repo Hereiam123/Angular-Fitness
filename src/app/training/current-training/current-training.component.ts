@@ -13,12 +13,11 @@ export class CurrentTrainingComponent implements OnInit {
   timer: number;
   constructor(private dialog: MatDialog) {}
 
-  ngOnInit() {
-    //Why can I do this?
-    //The interval returns an ID, I believe
-  }
+  ngOnInit() {}
 
   startOrResumeTimer(): void {
+    //Why can I do this?
+    //The interval returns an ID, I believe
     this.timer = setInterval(() => {
       this.progress = this.progress + 5;
       if (this.progress >= 100) {
