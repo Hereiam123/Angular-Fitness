@@ -26,6 +26,10 @@ export class HeaderComponent implements OnInit {
     this.authSubscription.unsubscribe();
   }
 
+  onLogout(): void {
+    this.authService.logout();
+  }
+
   onToggleSideNav(): void {
     this.sideNavToggle.emit();
   }
