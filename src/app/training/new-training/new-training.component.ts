@@ -13,11 +13,11 @@ export class NewTrainingComponent implements OnInit {
   @Output() trainingStart: EventEmitter<void> = new EventEmitter<void>();
   possibleExcercises: Excercise[];
 
-  constructor(trainingService: TrainingService) {
-    this.possibleExcercises = trainingService.availableExcercises
+  constructor(private trainingService: TrainingService) {
   }
 
   ngOnInit() {
+    this.possibleExcercises = this.trainingService.availableExcercises
   }
 
   onStartTraining(): void {
