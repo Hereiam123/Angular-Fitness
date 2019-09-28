@@ -11,9 +11,9 @@ export class CurrentTrainingComponent implements OnInit {
   @Output() trainingExitEvent: EventEmitter<void> = new EventEmitter<void>();
   progress: number = 0;
   timer: number;
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   startOrResumeTimer(): void {
     //Why can I do this?
