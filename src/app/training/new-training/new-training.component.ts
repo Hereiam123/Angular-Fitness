@@ -17,7 +17,7 @@ export class NewTrainingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.possibleExcercises = this.trainingService.availableExcercises
+    this.possibleExcercises = this.trainingService.getAvailableExcercises()
   }
 
   onStartTraining(): void {

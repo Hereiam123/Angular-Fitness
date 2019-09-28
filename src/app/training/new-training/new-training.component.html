@@ -5,14 +5,8 @@
     </mat-card-title>
     <mat-form-field fxLayoutAlign="center">
       <mat-select placeholder="Excercises" [(ngModel)]="selectedValue" name="item">
-        <mat-option value="crunches">
-          Crunches
-        </mat-option>
-        <mat-option value="touch-toes">
-          Touch Toes
-        </mat-option>
-        <mat-option value="side-lunges">
-          Side Lunges
+        <mat-option *ngFor="let exercise of possibleExcercises" [value]="exercise.id">
+          {{exercise.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
