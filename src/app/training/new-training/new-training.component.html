@@ -4,8 +4,8 @@
       New Training Item
     </mat-card-title>
     <mat-form-field fxLayoutAlign="center">
-      <mat-select placeholder="Excercises" [(ngModel)]="selectedValue" name="item">
-        <mat-option *ngFor="let exercise of possibleExcercises" [value]="exercise.id">
+      <mat-select placeholder="Exercises" [(ngModel)]="selectedValue" name="item">
+        <mat-option *ngFor="let exercise of possibleExercises" [value]="exercise.id">
           {{exercise.name}}
         </mat-option>
       </mat-select>
