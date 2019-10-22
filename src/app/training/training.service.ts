@@ -25,13 +25,15 @@ export class TrainingService {
     }
 
     completeExcercise() {
-        this.exercises.push(this.runningExercise);
+        this.exercises.push({ ...this.runningExercise, date: new Date(), state: 'completed' });
         this.runningExercise = null;
         this.excerciseChanged.next(null);
     }
 
-    cancelExcercise() {
-
+    cancelExcercise(progress: number) {
+        this.exercises.push({ ...this.runningExercise, date: new Date(), state: 'cancelled', duration: this.runningExercise.duration * (progress / 100), calories: this.runningExercise.calories * (progress / 100) });
+        this.runningExercise = null;
+        this.excerciseChanged.next(null);
     }
 
     getRunningExercise() {
