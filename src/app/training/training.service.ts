@@ -11,6 +11,7 @@ export class TrainingService {
     ];
 
     private runningExercise: Exercise;
+    private exercises: Exercise[] = [];
 
     getAvailableExercises(): Exercise[] {
         return this.availableExercises.slice()
@@ -21,6 +22,16 @@ export class TrainingService {
             return ex.id === selectedValue
         });
         this.excerciseChanged.next({ ...this.runningExercise })
+    }
+
+    completeExcercise() {
+        this.exercises.push(this.runningExercise);
+        this.runningExercise = null;
+        this.excerciseChanged.next(null);
+    }
+
+    cancelExcercise() {
+
     }
 
     getRunningExercise() {
