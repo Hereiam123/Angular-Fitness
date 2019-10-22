@@ -18,8 +18,12 @@ export class TrainingService {
 
     startExercise(selectedValue: string) {
         this.runningExercise = this.availableExercises.find(ex => {
-            ex.id === selectedValue
+            return ex.id === selectedValue
         });
         this.excerciseChanged.next({ ...this.runningExercise })
+    }
+
+    getRunningExercise() {
+        return { ...this.runningExercise };
     }
 }
