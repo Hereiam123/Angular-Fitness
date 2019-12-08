@@ -10,7 +10,8 @@ import {
   MatProgressSpinnerModule,
   MatDialogModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatPaginatorModule
 } from "@angular/material";
 import { MatIconModule } from "@angular/material";
 import { MatFormFieldModule } from "@angular/material";
@@ -36,7 +37,8 @@ import { MatCheckboxModule } from "@angular/material";
     MatProgressSpinnerModule,
     MatDialogModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -55,7 +57,8 @@ import { MatCheckboxModule } from "@angular/material";
     MatProgressSpinnerModule,
     MatDialogModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
