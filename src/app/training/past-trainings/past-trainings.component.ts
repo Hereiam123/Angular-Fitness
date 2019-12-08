@@ -9,7 +9,7 @@ import { TrainingService } from '../training.service';
   styleUrls: ['./past-trainings.component.css']
 })
 export class PastTrainingsComponent implements OnInit, AfterViewInit {
-  displayedColumns: Array<String> = ['date', 'name', 'duration', 'calories', 'state'];
+  displayedColumns: Array<string> = ['date', 'name', 'duration', 'calories', 'state'];
   dataSource: MatTableDataSource<Exercise> = new MatTableDataSource<Exercise>();
 
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -22,5 +22,9 @@ export class PastTrainingsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+  }
+
+  doFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
