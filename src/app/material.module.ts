@@ -8,7 +8,8 @@ import {
   MatCardModule,
   MatSelectModule,
   MatProgressSpinnerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTableModule
 } from "@angular/material";
 import { MatIconModule } from "@angular/material";
 import { MatFormFieldModule } from "@angular/material";
@@ -32,7 +33,8 @@ import { MatCheckboxModule } from "@angular/material";
     MatCardModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -49,7 +51,8 @@ import { MatCheckboxModule } from "@angular/material";
     MatCardModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

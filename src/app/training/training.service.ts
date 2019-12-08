@@ -17,26 +17,30 @@ export class TrainingService {
         return this.availableExercises.slice()
     }
 
-    startExercise(selectedValue: string) {
+    startExercise(selectedValue: string): void {
         this.runningExercise = this.availableExercises.find(ex => {
             return ex.id === selectedValue
         });
         this.excerciseChanged.next({ ...this.runningExercise })
     }
 
-    completeExcercise() {
+    completeExcercise(): void {
         this.exercises.push({ ...this.runningExercise, date: new Date(), state: 'completed' });
         this.runningExercise = null;
         this.excerciseChanged.next(null);
     }
 
-    cancelExcercise(progress: number) {
+    cancelExcercise(progress: number): void {
         this.exercises.push({ ...this.runningExercise, date: new Date(), state: 'cancelled', duration: this.runningExercise.duration * (progress / 100), calories: this.runningExercise.calories * (progress / 100) });
         this.runningExercise = null;
         this.excerciseChanged.next(null);
     }
 
-    getRunningExercise() {
+    getRunningExercise(): Exercise {
         return { ...this.runningExercise };
+    }
+
+    getCompletedorCancelledExercises(): Exercise[] {
+        return this.exercises.slice();
     }
 }
