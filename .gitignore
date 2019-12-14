@@ -47,3 +47,4 @@ Thumbs.db
 
 #Firebase information
 src/environments/firebaseinfo.ts
+src/environments/firebaseinfo.ts
