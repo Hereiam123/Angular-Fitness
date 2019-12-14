@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 #Firebase information
-/environments/firebaseinfo.ts
+src/environments/firebaseinfo.ts
