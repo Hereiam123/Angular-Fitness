@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { TrainingService } from "../training.service";
 import { Exercise } from "../exercise.model";
 import { NgForm } from "@angular/forms";
@@ -10,7 +10,7 @@ import { UIService } from "src/app/shared/ui.service";
   templateUrl: "./new-training.component.html",
   styleUrls: ["./new-training.component.css"]
 })
-export class NewTrainingComponent implements OnInit {
+export class NewTrainingComponent implements OnInit, OnDestroy {
   possibleExercises: Exercise[];
   isLoading = true;
   private exerciseSubscription: Subscription;
