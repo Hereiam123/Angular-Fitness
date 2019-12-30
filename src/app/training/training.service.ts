@@ -36,11 +36,22 @@ export class TrainingService {
             });
           })
         )
-        .subscribe((exercises: Exercise[]) => {
-          this.uiService.loadingStateChanged.next(false);
-          this.availableExercises = exercises;
-          this.exercisesChanged.next([...this.availableExercises]);
-        })
+        .subscribe(
+          (exercises: Exercise[]) => {
+            this.uiService.loadingStateChanged.next(false);
+            this.availableExercises = exercises;
+            this.exercisesChanged.next([...this.availableExercises]);
+          },
+          error => {
+            this.uiService.loadingStateChanged.next(false);
+            this.uiService.showSnackBar(
+              "Fetching Exercises Failed",
+              null,
+              3000
+            );
+            this.exercisesChanged.next(null);
+          }
+        )
     );
   }
 
@@ -82,9 +93,18 @@ export class TrainingService {
       this.db
         .collection("finishedExercises")
         .valueChanges()
-        .subscribe((exercises: Exercise[]) => {
-          this.finishedExerisesChanged.next(exercises);
-        })
+        .subscribe(
+          (exercises: Exercise[]) => {
+            this.finishedExerisesChanged.next(exercises);
+          },
+          error => {
+            this.uiService.showSnackBar(
+              "Fetching Exercises Failed",
+              null,
+              3000
+            );
+          }
+        )
     );
   }
 

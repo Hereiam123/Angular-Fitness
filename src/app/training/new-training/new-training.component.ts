@@ -32,6 +32,10 @@ export class NewTrainingComponent implements OnInit {
         this.possibleExercises = exercises;
       }
     );
+    this.getExercises();
+  }
+
+  getExercises(): void {
     this.trainingService.getAvailableExercises();
   }
 
