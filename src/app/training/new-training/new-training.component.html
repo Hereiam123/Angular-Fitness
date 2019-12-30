@@ -4,14 +4,20 @@
       <mat-card-title fxLayoutAlign="center">
         New Training Item
       </mat-card-title>
-      <mat-form-field fxLayoutAlign="center">
-        <mat-select placeholder="Exercises" ngModel name="exercise" required>
-          <mat-option *ngFor="let exercise of possibleExercises" [value]="exercise.id">
-            {{exercise.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-card-actions fxLayoutAlign="center">
+      <mat-card-content fxLayoutAlign="center">
+        <mat-form-field *ngIf="!isLoading">
+          <mat-select placeholder="Exercises" ngModel name="exercise" required>
+            <mat-option
+              *ngFor="let exercise of possibleExercises"
+              [value]="exercise.id"
+            >
+              {{ exercise.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center" *ngIf="!isLoading">
         <button type="submit" mat-button [disabled]="f.invalid">Submit</button>
       </mat-card-actions>
     </mat-card>
