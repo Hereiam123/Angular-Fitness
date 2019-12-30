@@ -1,4 +1,3 @@
-import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
 import { Subject } from "rxjs/Subject";
 import { Injectable } from "@angular/core";
@@ -8,44 +7,37 @@ import { AngularFireAuth } from "angularfire2/auth";
 @Injectable()
 export class AuthService {
   authChange: Subject<boolean> = new Subject<boolean>();
-  private user: User;
+  private isAuthenticated = false;
 
   constructor(private router: Router, private afAuth: AngularFireAuth) {}
 
   registerUser(authData: AuthData): void {
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
-      .then(result => console.log(result))
+      .then(() => this.authSuccess())
       .catch(error => console.log(error));
-    //this.authSuccess();
   }
 
   login(authData: AuthData): void {
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
-      .then(result => console.log(result))
+      .then(() => this.authSuccess())
       .catch(error => console.log(error));
-    //this.authSuccess();
   }
 
   logout(): void {
-    this.user = null;
+    this.isAuthenticated = false;
     this.authChange.next(false);
     this.router.navigate(["/login"]);
   }
 
   private authSuccess(): void {
+    this.isAuthenticated = true;
     this.authChange.next(true);
     this.router.navigate(["/training"]);
   }
 
-  getUser(): User {
-    //Need to prevent outside components and structures
-    //from being allowed to manipulate interval user object
-    return { ...this.user };
-  }
-
   isAuth(): boolean {
-    return this.user != null;
+    return this.isAuthenticated;
   }
 }
