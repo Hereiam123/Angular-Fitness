@@ -14,7 +14,6 @@ import { AngularFireModule } from "angularfire2";
 import { environment } from "../environments/environment";
 import { UIService } from "./shared/ui.service";
 import { AuthModule } from "./auth/auth.module";
-import { TrainingModule } from "./training/training.module";
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { TrainingModule } from "./training/training.module";
     MaterialModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AuthModule,
-    TrainingModule
+    AuthModule
   ],
   providers: [AuthService, TrainingService, UIService],
   bootstrap: [AppComponent]
