@@ -1,3 +1,7 @@
+import FirebaseInfo from "./firebaseinfo";
 export const environment = {
-  production: true
+  production: true,
+  firebase: {
+    ...FirebaseInfo
+  }
 };

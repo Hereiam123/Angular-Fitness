@@ -27,11 +27,12 @@ export class TrainingService {
         .pipe(
           map(docData => {
             return docData.map(doc => {
+              const exerciseSnapShot = doc.payload.doc.data() as Exercise;
               return {
                 id: doc.payload.doc.id,
-                name: doc.payload.doc.data().name,
-                duration: doc.payload.doc.data().duration,
-                calories: doc.payload.doc.data().calories
+                name: exerciseSnapShot.name,
+                duration: exerciseSnapShot.duration,
+                calories: exerciseSnapShot.calories
               };
             });
           })

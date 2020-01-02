@@ -1,6 +1,10 @@
 import { Component, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material";
 
+export interface DialogData {
+  progress: number;
+}
+
 @Component({
   selector: "app-stop-training",
   template: `
@@ -18,5 +22,5 @@ export class StopTrainingComponent {
   //MAT_DIALOG_DATA allows passing in data, and
   //Angular material uses this constant as an identifier
   //for the data
-  constructor(@Inject(MAT_DIALOG_DATA) private data: number) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
