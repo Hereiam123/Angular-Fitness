@@ -102,7 +102,7 @@ export class TrainingService {
         .valueChanges()
         .subscribe(
           (exercises: Exercise[]) => {
-            this.store.dispatch(new Training.SetAvailableTrainings(exercises));
+            this.store.dispatch(new Training.SetFinishedTrainings(exercises));
           },
           error => {
             this.uiService.showSnackBar(
