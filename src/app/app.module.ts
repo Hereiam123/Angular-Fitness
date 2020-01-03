@@ -11,7 +11,7 @@ import { SidenavListComponent } from "./navigation/sidenav-list/sidenav-list.com
 import { AuthService } from "./auth/auth.service";
 import { TrainingService } from "./training/training.service";
 import { AngularFireModule } from "angularfire2";
-import { environment } from "../environments/environment";
+import { environment } from "../environments/environment.prod";
 import { UIService } from "./shared/ui.service";
 import { AuthModule } from "./auth/auth.module";
 import { AngularFirestoreModule } from "angularfire2/firestore";
