@@ -1,4 +1,3 @@
-import { Subject } from "rxjs/Subject";
 import { Exercise } from "./exercise.model";
 import { AngularFirestore } from "angularfire2/firestore";
 import { map } from "rxjs/operators";
@@ -13,9 +12,6 @@ import { take } from "rxjs/operators";
 
 @Injectable()
 export class TrainingService {
-  finishedExerisesChanged = new Subject<Exercise[]>();
-
-  private runningExercise: Exercise;
   private fbSubs: Subscription[] = [];
 
   constructor(
@@ -85,7 +81,7 @@ export class TrainingService {
       .pipe(take(1))
       .subscribe(exercise => {
         this.addDataToDatabase({
-          ...this.runningExercise,
+          ...exercise,
           date: new Date(),
           state: "cancelled",
           duration: exercise.duration * (progress / 100),
